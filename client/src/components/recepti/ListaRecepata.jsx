@@ -1,6 +1,6 @@
 import Recept from "./Recept";
 
-export default function ListaRecepata({ recepti, kategorijeMap, onRate }) {
+export default function ListaRecepata({ recepti, onRate }) {
   if (!recepti?.length) return <div className="card muted">Nema recepata.</div>;
   return (
     <>

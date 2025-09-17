@@ -27,7 +27,7 @@ export default function Recept({ recept, onRate }) {
   async function rate(e) {
     e.preventDefault();
     if (typeof onRate === "function") {
-      await onRate(recept.id, Number(ocena)); // roditelj radi refresh liste
+      await onRate(recept.id, Number(ocena));
     }
   }
 
