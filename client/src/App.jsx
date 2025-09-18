@@ -7,7 +7,7 @@ export default function App(){
     <BrowserRouter>
       <div className="wrap">
         <header className="row" style={{ marginBottom: 12, justifyContent: "space-between" }}>
-          <h1 style={{ margin: 0, color: "#b0005b" }}>🍰 Recepti</h1>
+          <h1 style={{ margin: 0, color: "#001affb6" }}>Recepti</h1>
           <nav className="row">
             <NavLink className="btn" to="/">Početna</NavLink>
             <NavLink className="btn" to="/recepti">Recepti</NavLink>

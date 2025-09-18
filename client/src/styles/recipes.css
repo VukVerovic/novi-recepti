@@ -1,27 +1,33 @@
-/* ===== Pastel food tema (v2) ===== */
 * { box-sizing: border-box; }
 html, body, #root { height: 100%; }
 
 :root{
-  --ink:#3a2a2c;
-  --rose-100:#fff7fb;
-  --rose-200:#ffeef8;
-  --peach-100:#fef4e6;
-  --accent-1:#ff9ec4;
-  --accent-2:#ff7aa8;
-  --accent-3:#b0005b;
-  --line:#f6d9e6;
-  --line-2:#f6cfe0;
+  --ink:#1f2428;            /* primarni tekst */
+  --bg-100:#f5f7fa;         /* bazna pozadina */
+  --bg-200:#e9edf3;         /* mehuri */
+  --steel-100:#e2e8f0;      /* svetle linije */
+  --steel-200:#cbd5e1;      /* tamnije linije */
+
+  /* Akcenti – plave nijanse */
+  --accent-1:#3b82f6;       /* gornji gradient */
+  --accent-2:#2563eb;       /* donji gradient */
+  --accent-3:#0f3460;       /* naslovi/isticanje */
+
+  --rose-100: var(--bg-100);
+  --rose-200: var(--bg-200);
+  --peach-100: var(--bg-100);
+  --line: var(--steel-100);
+  --line-2: var(--steel-200);
 }
 
 body {
   margin: 0;
-  font-family: "Quicksand", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
   color: var(--ink);
   background:
-    radial-gradient(1200px 600px at -20% -20%, var(--rose-200) 0%, transparent 60%),
-    radial-gradient(1200px 600px at 120% 20%, var(--peach-100) 0%, transparent 60%),
-    var(--rose-100);
+    radial-gradient(1200px 600px at -20% -20%, var(--bg-200) 0%, transparent 60%),
+    radial-gradient(1200px 600px at 120% 20%, var(--bg-100) 0%, transparent 60%),
+    var(--bg-100);
 }
 
 /* Linkovi globalno: bez podvlačenja */
@@ -31,15 +37,15 @@ a:hover { text-decoration: none; }
 .wrap { max-width: 1080px; margin: 24px auto 48px; padding: 0 16px; }
 
 .card {
-  background: #fffdfd;
+  background: #ffffff;
   border: 1px solid var(--line);
-  border-radius: 16px;
+  border-radius: 14px;
   padding: 14px;
-  box-shadow: 0 4px 18px rgba(204, 79, 112, 0.08);
+  box-shadow: 0 6px 18px rgba(2, 24, 43, 0.06);
 }
 
-.card-h { font-weight: 800; font-size: 16px; margin-bottom: 8px; color: #8a1451; }
-.muted { color: #7a6b6d; font-size: 13px; }
+.card-h { font-weight: 800; font-size: 16px; margin-bottom: 8px; color: var(--accent-3); }
+.muted { color: #657487; font-size: 13px; }
 .row { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
 .stack { display: grid; gap: 12px; }
 .grid-2 { display: grid; grid-template-columns: 420px 1fr; gap: 16px; }
@@ -50,42 +56,41 @@ a:hover { text-decoration: none; }
   border: 1px solid var(--line-2);
   background: #fff;
   color: var(--ink);
-  border-radius: 12px;
+  border-radius: 10px;
   padding: 10px 12px;
   font-size: 14px;
   outline: none;
 }
 textarea { min-height: 96px; resize: vertical; }
 .inp:focus, select:focus, textarea:focus {
-  border-color: #f48fb1;
-  box-shadow: 0 0 0 3px rgba(244, 143, 177, .25);
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 3px rgba(96, 165, 250, .25);
 }
 
 .btn {
   height: 40px; padding: 0 18px; font-weight: 700;
-  border-radius: 12px; cursor: pointer; border: none;
+  border-radius: 10px; cursor: pointer; border: none;
   background: linear-gradient(180deg, var(--accent-1), var(--accent-2));
   color: #fff;
-  box-shadow: 0 8px 14px rgba(255, 122, 168, .2);
-  text-decoration: none;                /* ⇠ bez podvlačenja */
+  box-shadow: 0 8px 16px rgba(37, 99, 235, .18);
+  text-decoration: none;
   display: inline-flex; align-items: center; gap: 8px;
 }
 .btn:hover { filter: brightness(1.05); text-decoration: none; }
 .btn:disabled { opacity: .6; cursor: not-allowed; }
 
-/* ako imaš link koji izgleda kao dugme (NavLink) */
 a.btn { text-decoration: none; }
 a.btn:hover { text-decoration: none; }
 
 .divider { height: 1px; background: var(--line); margin: 12px 0; }
 
-/* kartica recepta sa blagom pozadinskom slikom */
+/* kartica recepta – neutralna tekstura umesto rozikaste */
 .recipe-card {
-  background-image: url("/images/bg-food.jpg");   /* vidi napomenu o slikama ispod */
+  background-image: url("/images/bg-texture.jpg"); /* zameni svojom neutralnom teksturom */
   background-size: cover;
   background-position: center;
   background-blend-mode: lighten;
-  background-color: rgba(255,255,255,0.88);
+  background-color: rgba(255,255,255,0.9);
 }
 
 .recipe-title {
@@ -94,7 +99,6 @@ a.btn:hover { text-decoration: none; }
   font-size: 20px; font-weight: 800;
 }
 
-/* rating badge */
 .rating-badge {
   display: inline-grid;
   grid-auto-flow: column;
@@ -102,37 +106,34 @@ a.btn:hover { text-decoration: none; }
   gap: 6px;
   padding: 6px 10px;
   border-radius: 999px;
-  background: #ffe4ef;
-  border: 1px solid #ffc7dd;
+  background: #e6eefb;
+  border: 1px solid #c7d6f5;
 }
-.rating-value { font-weight: 900; color: #a00059; }
-.rating-label { color: #7a6b6d; font-size: 12px; }
+.rating-value { font-weight: 900; color: #0f4c81; }
+.rating-label { color: #5b6b7e; font-size: 12px; }
 
 .comment {
   padding: 8px 10px;
   border: 1px dashed var(--line-2);
   border-radius: 10px;
-  background: #fffafb;
+  background: #f7f9fc;
 }
 .comment + .comment { margin-top: 6px; }
 
 /* Login page */
 .login-bg {
   min-height: 100vh;
-  background: url("/images/bg-login.jpg") center/cover no-repeat fixed,
-              linear-gradient(180deg, var(--rose-100), var(--rose-200));
+  background: url("/images/bg-login-neutral.jpg") center/cover no-repeat fixed,
+              linear-gradient(180deg, var(--bg-100), var(--bg-200));
   display: grid; place-items: center; padding: 24px;
 }
 .login-card {
   width: 100%; max-width: 520px;
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid var(--line); border-radius: 18px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid var(--line); border-radius: 14px;
   padding: 20px;
-  box-shadow: 0 20px 40px rgba(138, 20, 81, 0.15);
+  box-shadow: 0 20px 40px rgba(15, 52, 96, 0.12);
 }
 .login-card h2 { margin: 0 0 6px; color: var(--accent-3); }
 
-/* navbar linkovi – bez podvlačenja */
-.nav a, .nav .btn, .nav .nav-link {
-  text-decoration: none;
-}
+.nav a, .nav .btn, .nav .nav-link { text-decoration: none; }

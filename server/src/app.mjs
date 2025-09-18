@@ -2,9 +2,9 @@ import "dotenv/config";
 import express from "express";
 import cors from "cors";
 
-import receptiRouter from "./routes/recepti.mjs";
-import komentariRouter from "./routes/komentari.mjs";
-import kategorijeRouter from "./routes/kategorije.mjs";
+import receptiRouter from "./routers/recepti.mjs";
+import komentariRouter from "./routers/komentari.mjs";
+import kategorijeRouter from "./routers/kategorije.mjs";
 
 const app = express();
 app.use(cors());
